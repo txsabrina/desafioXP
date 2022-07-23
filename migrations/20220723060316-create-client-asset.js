@@ -22,6 +22,10 @@ module.exports = {
       qttAssets: {
         allowNull: false,
         type: Sequelize.INTEGER,
+      },
+      value: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
       }
     });
   },

@@ -1,5 +1,5 @@
 const { Client, Asset } = require('../models');
-const { customError } = require('../helpers')
+const { customError } = require('../helpers');
 
 const getBalance = async (id) => {
   const {codClient, balance} = await Client.findOne({

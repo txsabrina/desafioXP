@@ -4,7 +4,8 @@ const ClientAsset =  (sequelize, DataTypes) => {
   const ClientAsset = sequelize.define('ClientAsset', {
     codClient: {type: DataTypes.INTEGER, primaryKey: true},
     codAsset: {type: DataTypes.INTEGER, primaryKey: true},
-    qttAssets: DataTypes.INTEGER
+    qttAssets: DataTypes.INTEGER,
+    value: DataTypes.INTEGER,
   },{
     tableName: 'ClientAssets',
     timestamps: false
