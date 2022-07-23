@@ -16,13 +16,27 @@ const getAssets = async (codAsset) => {
   });
 
   if(!asset) {
-    customError(404, 'Asset not found!')
+    customError(404, 'Asset not found!');
   };
 
   return asset;
-}
+};
+
+const getAssetByClient = async (codClient) => {
+  const result = await ClientAsset.findAll({
+    where: {codClient},
+    attributes: ['codClient', 'codAsset', 'qttAssets', 'value'],
+  });
+  
+  if(!result) {
+    customError(400, 'Client has no assets!');
+  }
+
+  return result;
+};
 
 module.exports = {
   getBalance,
   getAssets,
+  getAssetByClient,
 };

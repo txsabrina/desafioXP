@@ -18,12 +18,25 @@ const getAssets = async (req, res, next) => {
     const result = await service.getAssets(codAsset);
 
     return res.status(200).json(result);
-  } catch(e) {
-    next(e)
+  } catch(err) {
+    next(err)
+  }
+};
+
+const getAssetByClient = async (req, res, next) => {
+  const codClient = req.client;
+
+  try{
+    const result = await service.getAssetByClient(codClient);
+
+    return res.status(200).json(result);
+  } catch(err) {
+    next(err)
   }
 };
 
 module.exports = {
   getBalance,
   getAssets,
+  getAssetByClient,
 };
