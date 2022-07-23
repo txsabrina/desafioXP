@@ -67,12 +67,16 @@ describe('Quando chamada a função create', () => {
 
 describe('Quando chamada a função login', () => {
   describe('em caso', () => {
-    before(sinon.restore);
+    beforeEach(() => {
+      sinon.stub(Client, 'findOne').throws;
+    });
+
+    afterEach(() => {
+      Client.findOne.restore();
+    })
 
     const email = 'sabrin@gmail.com';
     const pass = '1232039483'
-    
-    sinon.stub(Client, 'findOne').throws;
     
     it('o email seja invalido, deve retornar um erro com a mensagem "Invalid email!" ', async () => {
       try {
@@ -95,7 +99,13 @@ describe('Quando chamada a função login', () => {
     const email = 'sabrin@gmail.com';
     const pass = '1232039483'
     
-    sinon.stub(Client, 'findOne').resolves(mockClient);
+    beforeEach(() => {
+      sinon.stub(Client, 'findOne').resolves(mockClient);
+    });
+
+    afterEach(() => {
+      Client.findOne.restore();
+    })
 
     const result = await login(email, pass);
     

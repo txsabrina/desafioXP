@@ -2,7 +2,7 @@ const { Client, Asset } = require('../database/models');
 const { customError } = require('../helpers');
 
 const getBalance = async (id) => {
-  const {codClient, balance} = await Client.findOne({
+  const { codClient, balance } = await Client.findOne({
     where: { codClient: id }
   });
 
