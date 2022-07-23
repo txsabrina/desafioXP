@@ -1,4 +1,4 @@
-const { Client, Asset, ClientAsset } = require('../models');
+const { Client, Asset, ClientAsset } = require('../database/models');
 const { customError } = require('../helpers');
 
 const investmentsCreate = async (codClient, codAsset, qttAssets, value) => {

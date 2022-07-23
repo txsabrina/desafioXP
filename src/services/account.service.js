@@ -1,4 +1,4 @@
-const { Client, Asset } = require('../models');
+const { Client, Asset } = require('../database/models');
 const { customError } = require('../helpers');
 
 const getBalance = async (id) => {

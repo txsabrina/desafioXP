@@ -2,7 +2,7 @@
   "name": "desafio_xp",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "mocha ./tests/**/*$NAME*.test.js --exit",
     "reset": "npm run drop && npm run prestart && npm run seed && clear && npm run dev",

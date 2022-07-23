@@ -1,4 +1,4 @@
-const { Client } = require('../models');
+const { Client } = require('../database/models');
 const custumError = require('../helpers');
 
 const accountDeposit = async (codClient, value) => {
