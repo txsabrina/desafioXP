@@ -1,12 +1,13 @@
-const { tokenValidate } = require('../helpers/token');
+const { tokenValidate } = require('../helpers');
 
 const auth = async (req, _res, next) => {
   const token = req.headers.authorization;
 
   try {
-    const client = tokenValidate(token);
+    const {codClient} = await tokenValidate(token,);
 
-    req.client = client;
+    req.client = codClient;
+    console.log('finish')
     return next();
   } catch(e) {
     next(e)

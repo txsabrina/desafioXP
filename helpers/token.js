@@ -10,16 +10,16 @@ const createToken = (user) => {
   return token;
 };
 
-const tokenValidate = (token) => {
+const tokenValidate = async (token) => {
   const segredo = process.env.JWT_SECRET; 
   if (!token) {
     return { status: 401, message: 'Token not found' };
   }
 
   try {
-    const {client}  = jwt.verify(token, segredo);
+    const {user}  = await jwt.verify(token, segredo);
 
-    return client;
+    return user.dataValues;
   } catch (_e) {
     const error = new Error('Expired or invalid token'); 
     error.status = 401;
