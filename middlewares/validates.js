@@ -18,7 +18,20 @@ const validateLogin = (req, _res, next) => {
   return next();
 };
 
+const validateInvest = (req, _res, next) => {
+  const { codAsset, qttAssets } = req.body;
+
+  if(!codAsset || codAsset === '') {
+    return next({ status: 400, message: 'Invalid code!' });
+  }
+  if(!qttAssets || qttAssets === '') {
+    return next({ status: 400, message: 'Invalid quantity!' });
+  }
+  return next();
+};
+
 module.exports = {
   validateCreate,
   validateLogin,
+  validateInvest,
 };
