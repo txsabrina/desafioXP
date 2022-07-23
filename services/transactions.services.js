@@ -10,15 +10,9 @@ const accountDeposit = async (codClient, value) => {
     where: { codClient }
   });
   await client.update({ balance: client.balance + value});
-
-  return true;
 };
 
 const accountWithdraw = async (codClient, value) => {
-  if(value > client.balance) {
-    custumError(400, 'Invalid value!')
-  };
-
   if(value <= 0) {
     custumError(400, 'Invalid value!')
   };
@@ -26,10 +20,12 @@ const accountWithdraw = async (codClient, value) => {
   const client = await Client.findOne({
     where: { codClient }
   });
+  
+  if(value > client.balance) {
+    custumError(400, 'Invalid value!')
+  };
 
   await client.update({ balance: client.balance - value});
-
-  return true;
 };
 
 module.exports = {

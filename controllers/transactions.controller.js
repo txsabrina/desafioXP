@@ -2,7 +2,7 @@ const service = require('../services/transactions.services');
 
 const accountDeposit = async (req, res, next) => {
   const { value } = req.body;
-  const { codClient } = req.client;
+  const  codClient  = req.client;
 
   try{
     await service.accountDeposit(codClient, value);
@@ -15,7 +15,7 @@ const accountDeposit = async (req, res, next) => {
 
 const accountWithdraw = async (req, res, next) => {
   const { value } = req.body;
-  const { codClient } = req.client;
+  const  codClient  = req.client;
 
   try{
     await service.accountWithdraw(codClient, value);

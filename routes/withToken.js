@@ -12,6 +12,8 @@ const {
 
 const { buyAsserts, sellAsserts } = require('../controllers/investiments.controller');
 
+const { accountDeposit, accountWithdraw} = require('../controllers/transactions.controller');
+
 route.get('/conta', getBalance);
 
 route.get('/ativos/:id', getAssets);
@@ -21,5 +23,9 @@ route.get('/ativos/me', getAssetByClient);
 route.post('/investimento/comprar', buyAsserts);
 
 route.post('/investimento/vender', mid.validateInvest, sellAsserts);
+
+route.post('/conta/deposito', accountDeposit);
+
+route.post('/conta/saque', accountWithdraw);
 
 module.exports = route;
