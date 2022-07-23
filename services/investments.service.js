@@ -43,6 +43,40 @@ const buyAsserts = async (codClient, codAsset, qttAssets) => {
   await updateTable(client, { balance: client.balance - purchaseTotal });
 };
 
+const validations = async (codClient, codAsset, qttAssets) => {
+  const asset = await Asset.findOne({ where: { codAsset }});
+  if(!asset) {
+    customError(400, 'Invalid asset!');
+  };
+
+  const patrimony = await ClientAsset.findOne({ where: { codAsset, codClient }});
+  if(!patrimony) {
+  customError(400, 'This asset was not acquired!');
+  }
+
+  if( qttAssets > patrimony.qttAssets) {
+    customError(400, 'This asset was not acquired!');
+  };
+};
+
+const sellAsserts = async (codClient, codAsset, qttAssets) => {
+  const asset = await Asset.findOne({ where: { codAsset }})
+  const client = await Client.findOne({ where: { codClient }});
+  const patrimony = await ClientAsset.findOne({ where: { codAsset, codClient }});
+
+  validations(codClient, codAsset, qttAssets);
+  
+  const purchaseTotal = asset.value * qttAssets;
+
+  
+  await updateTable(patrimony, { qttAssets: patrimony.qttAssets - qttAssets});
+  
+  await updateTable(asset, { qttAssets: asset.qttAssets + qttAssets });
+  await updateTable(client, { balance: client.balance + purchaseTotal });
+
+};
+
 module.exports = {
   buyAsserts,
+  sellAsserts,
 }
