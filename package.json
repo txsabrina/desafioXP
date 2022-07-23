@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "reset": "npm run drop && npm run prestart && npm run seed && clear && npm run debug",
+    "reset": "npm run drop && npm run prestart && npm run seed && clear && npm run dev",
     "drop": "npx sequelize-cli db:drop",
     "dev": "nodemon .",
     "seed": "npx sequelize-cli db:seed:all",
