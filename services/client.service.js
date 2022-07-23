@@ -1,4 +1,4 @@
-const { Client }  = require('../database/models');
+const { Client }  = require('../models');
 const encryptPass = require('../helpers/encryptPass');
 const { createToken, customError } = require('../helpers');
 
