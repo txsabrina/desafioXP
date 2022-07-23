@@ -4,10 +4,10 @@ const auth = async (req, _res, next) => {
   const token = req.headers.authorization;
 
   try {
-    const {codClient} = await tokenValidate(token,);
+    const client = await tokenValidate(token);
 
-    req.client = codClient;
-    console.log('finish')
+    req.client = client.codClient;
+
     return next();
   } catch(e) {
     next(e)

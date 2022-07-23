@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+const customError = require('../helpers/customError');
 
 const createToken = (user) => {
   const token = jwt.sign({user}, process.env.JWT_SECRET, { 
@@ -13,7 +14,7 @@ const createToken = (user) => {
 const tokenValidate = async (token) => {
   const segredo = process.env.JWT_SECRET; 
   if (!token) {
-    return { status: 401, message: 'Token not found' };
+    customError(401, 'Token not found');
   }
 
   try {
@@ -21,10 +22,7 @@ const tokenValidate = async (token) => {
 
     return user.dataValues;
   } catch (_e) {
-    const error = new Error('Expired or invalid token'); 
-    error.status = 401;
-
-    throw error;
+    customError(401, 'Expired or invalid token')
   }
 };
 
