@@ -5,7 +5,6 @@ const createClient = async (req, res, next) => {
   
   try{
     const result = await service.createClient(body);
-    if(result.status) return next(result);
 
     return res.status(201).json({ token: result });
   } catch (err) {
@@ -23,6 +22,7 @@ const login = async (req, res, next) => {
   } catch (err) {
     next(err)
   }
+
 };
 
 module.exports = { 

@@ -38,7 +38,9 @@ const client = await Client.findOne({ where: { email }});
     customError(400, 'Invalid password!'); 
   }
 
+  
   const { password: pass, ...rest } = client;
+
   const token = createToken(rest);
 
   return token
