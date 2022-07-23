@@ -8,10 +8,10 @@ const createClient = async (userInfos) => {
     where: { email: userInfos.email },
     defaults: { ...userInfos, password: hashPass },
   });
-  
-  if (!created) {
+
+    if (!created) {
     customError(409, 'Email already registered');
-  };
+  }; 
 
   const { password, ...newClient } = client;
   
