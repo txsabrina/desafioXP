@@ -11,7 +11,7 @@ const createClient = async (userInfos) => {
   });
 
     if (!created) {
-    customError(409, 'Email already registered');
+    customError(409, 'Email already registered!');
   }; 
 
   const { password, ...newClient } = client;
