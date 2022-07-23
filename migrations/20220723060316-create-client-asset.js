@@ -1,27 +1,35 @@
 'use strict';
+
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('ClientAssets', {
-      id: {
+      codAsset: {
         allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Assets',
+          key: 'codAsset'
+        }
       },
-      name: {
-        type: Sequelize.STRING
-      },
-      createdAt: {
+      codClient: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Clients',
+          key: 'codClient'
+        }
       },
-      updatedAt: {
+      qttAssets: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.INTEGER,
+      },
+      value: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
       }
     });
   },
-  async down(queryInterface, Sequelize) {
+  down: async (queryInterface, _Sequelize) => {
     await queryInterface.dropTable('ClientAssets');
   }
 };
