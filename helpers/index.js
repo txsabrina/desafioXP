@@ -1,6 +1,6 @@
 const encryptPass = require('./encryptPass');
 const {createToken, tokenValidate} = require('./token');
-const { schemaCreate } = require('./joi');
+const { schemaCreate, schemaLogin } = require('./joi');
 const customError = require('./customError');
 
 module.exports = {
@@ -8,5 +8,6 @@ module.exports = {
   createToken,
   tokenValidate,
   schemaCreate,
+  schemaLogin,
   customError,
 };
