@@ -1,4 +1,4 @@
-const service = require('../services/transactions.services');
+const service = require('../services/transactions.service');
 
 const accountDeposit = async (req, res, next) => {
   const { value } = req.body;
