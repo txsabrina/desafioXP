@@ -6,7 +6,7 @@ const mid = require('../middlewares');
 
 const { createClient, login } = require('../controllers/client.controller'); 
 
-route.post('/client', mid.validateCreate, createClient);
+route.post('/cliente', mid.validateCreate, createClient);
 
 route.post('/login', mid.validateLogin, login);
 

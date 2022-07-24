@@ -16,9 +16,9 @@ const { accountDeposit, accountWithdraw} = require('../controllers/transactions.
 
 route.get('/conta', getBalance);
 
-route.get('/ativos/:id', getAssets);
-
 route.get('/ativos/me', getAssetByClient);
+
+route.get('/ativos/:id', getAssets);
 
 route.post('/investimento/comprar', buyAsserts);
 

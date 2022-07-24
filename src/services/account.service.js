@@ -1,4 +1,4 @@
-const { Client, Asset } = require('../database/models');
+const { Client, Asset, ClientAsset } = require('../database/models');
 const { customError } = require('../helpers');
 
 const getBalance = async (id) => {
@@ -29,7 +29,7 @@ const getAssetByClient = async (codClient) => {
   });
   
   if(!result) {
-    customError(400, 'Client has no assets!');
+    return [];
   }
 
   return result;

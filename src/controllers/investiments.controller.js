@@ -2,6 +2,8 @@ const service = require('../services/investments.service');
 const buyAsserts = async (req, res, next) => {
   const { codAsset, qttAssets } = req.body;
   const codClient  = req.client;
+  console.log(codClient)
+
   
   try{
     await service.buyAsserts(codClient, codAsset, qttAssets);
