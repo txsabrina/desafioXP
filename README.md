@@ -1,28 +1,18 @@
 # Repositório da API do desafio XP
 
-Essa API foi desenvolvida para uma aplicação de um banco de investimentos;
-Nesta será possivel
+Esta API foi criada como parte de um desafio no processo seletivo para a equipe de tecnologia do banco XP. Ela oferece funcionalidades essenciais para uma aplicação de banco de investimentos, incluindo:
 
-* Criar um novo cadastro 
-* Fazer login 
-* Consultar saldo
-* Consultar ativos disponíveis para a venda
-* Consultar ativos comprados
-* Manipular ações de compra e venda de ativos
-* Fazer saques e depósitos para a conta
+- Criação de novos cadastros
+- Autenticação de usuários
+- Consulta de saldo
+- Visualização de ativos disponíveis para venda
+- Acompanhamento de ativos comprados
+- Execução de operações de compra e venda de ativos
+- Realização de saques e depósitos na conta
 
+Para desenvolver essa API desafiadora, utilizei a linguagem Node.js e o MySQL, com a biblioteca ORM Sequelize para acessar e gerenciar o banco de dados. Adotei  a arquitetura REST para a organização do projeto e empreguei as bibliotecas de teste Chai, Sinon e Mocha para garantir a qualidade e segurança do código.
 
-### Bibliotecas e Ferramentas utilizadas
-
-Para a criação dessa API, foi utilizada a linguagem *Node.js*.
-*MySQL e a a Biblioteca de ORM  Sequelize* foram utilizados para acessar e manipular o banco de dados.
-Em termos de organização e arquitetura, foi utilizado o padrão *REST*.
-Já na parte de testes foram utilizadas as bibliotecas *Chai, Sinon e Mocha*
-
-Abaixo será listado algumas outras bibliotecas de suporte para o desenvolvimento da aplicação:
-- JWT (Para criação de token e autenticação);
-- bcrypt (Para encryptar a senha do cliente, e garantir mais segurança);
-- Joi (Para fazer algumas validções).
+Além disso, foram incorporadas bibliotecas como JWT (para criação de tokens e autenticação), Bcrypt (para criptografia de senhas e reforço da segurança) e Joi (para validações de dados). Este projeto representa uma conquista significativa no contexto do desafio proposto pelo banco XP.
 
 <details>
   <summary><strong>‼️ Como iniciar a aplicação </strong></summary>
